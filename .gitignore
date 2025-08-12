@@ -1,0 +1,5 @@
+frontend/mall/node_modules/
+backend/mallapi/.gradle/
+backend/mallapi/.idea/
+backend/mallapi/build/
+frontend/mall/.idea/
