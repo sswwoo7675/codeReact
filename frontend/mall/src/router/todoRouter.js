@@ -10,8 +10,8 @@ const TodoModify = lazy(()=>import("../pages/todo/ModifyPage"))
 const todoRouter = () => {
     return [
         {
-          path: "",
-          element: <Navigate replace to="list" />
+            path: "",
+            element: <Navigate replace to="list" />
         },
         {
             path: "list",
