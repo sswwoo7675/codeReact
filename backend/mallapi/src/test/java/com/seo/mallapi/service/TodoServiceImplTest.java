@@ -23,7 +23,7 @@ class TodoServiceImplTest {
     void register() {
         TodoDTO todoDto = TodoDTO.builder()
                 .title("서비스 테스트")
-                .writer("tester")
+                .content("서비스 테스트 입니다")
                 .dueDate(LocalDate.of(2025,8,13))
                 .build();
 
@@ -34,7 +34,7 @@ class TodoServiceImplTest {
 
     @Test
     void get() {
-        Long tno = 101L;
+        Long tno = 50L;
 
         TodoDTO todoDTO = todoService.get(tno);
 

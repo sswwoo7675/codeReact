@@ -28,7 +28,7 @@ public class TodoReposiotryTests {
             Todo todo = Todo.builder()
                     .title("Title..." + i)
                     .dueDate(LocalDate.of(2025,8,13))
-                    .writer("user00")
+                    .content("content..." + i)
                     .build();
 
             todoRepository.save(todo);
@@ -52,6 +52,7 @@ public class TodoReposiotryTests {
         Todo todo = result.orElseThrow();
 
         todo.changeTitle("Modified 33...");
+        todo.changeContent("Modified content 33");
         todo.changeComplete(true);
         todo.changeDueDate(LocalDate.of(2023,10,10));
 
@@ -73,5 +74,10 @@ public class TodoReposiotryTests {
 
         log.info(result.getTotalElements());
         result.getContent().forEach(log::info);
+    }
+
+    @Test
+    public void testSearch1(){
+        todoRepository.search1();
     }
 }

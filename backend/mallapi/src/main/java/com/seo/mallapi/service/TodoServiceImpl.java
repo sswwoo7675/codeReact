@@ -44,7 +44,7 @@ public class TodoServiceImpl implements TodoService{
         Optional<Todo> result = todoRepository.findById(tno);
         Todo todo = result.orElseThrow();
 
-        return modelMapper.map(todo,TodoDTO.class);
+        return entityToDTO(todo);
     }
 
     @Override
@@ -54,6 +54,7 @@ public class TodoServiceImpl implements TodoService{
         Todo todo = result.orElseThrow();
 
         todo.changeTitle(todoDTO.getTitle());
+        todo.changeContent(todoDTO.getContent());
         todo.changeDueDate(todoDTO.getDueDate());
         todo.changeComplete(todo.isComplete());
 
