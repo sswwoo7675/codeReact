@@ -52,4 +52,18 @@ class TodoServiceImplTest {
 
         log.info(response);
     }
+
+    @Test
+    void testGetList(){
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder().build();
+
+        log.info(todoService.getList(pageRequestDTO));
+    }
 }
+
+
+
+
+
+
+

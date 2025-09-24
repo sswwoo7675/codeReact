@@ -87,4 +87,37 @@ public class TodoServiceImpl implements TodoService{
                 .totalCount(totalCount)
                 .build();
     }
+
+    @Override
+    public PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO) {
+        Page<Todo> result = todoRepository.search1(pageRequestDTO);
+
+        List<TodoDTO> dtoList = result.get()
+                .map(this::entityToDTO).toList();
+
+        return PageResponseDTO.<TodoDTO>withAll()
+                .dtoList(dtoList)
+                .pageRequestDTO(pageRequestDTO)
+                .totalCount(result.getTotalElements())
+                .build();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
