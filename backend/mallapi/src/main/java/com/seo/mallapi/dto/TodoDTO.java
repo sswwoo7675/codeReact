@@ -19,6 +19,8 @@ public class TodoDTO {
 
     private String content;
 
+    private String writer;
+
     private boolean complete;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

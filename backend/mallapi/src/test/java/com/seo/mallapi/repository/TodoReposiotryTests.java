@@ -28,6 +28,7 @@ public class TodoReposiotryTests {
             Todo todo = Todo.builder()
                     .title("Title..." + i)
                     .dueDate(LocalDate.of(2025,8,13))
+                    .writer("user00")
                     .content("content..." + i)
                     .build();
 

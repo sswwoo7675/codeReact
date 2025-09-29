@@ -23,6 +23,8 @@ public class Todo {
 
     private String content;
 
+    private String writer;
+
     private boolean complete;
 
     private LocalDate dueDate;
