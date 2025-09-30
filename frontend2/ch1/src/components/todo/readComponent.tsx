@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {getOne} from "../../api/todoApi.ts";
+import useCustomMove from "../../hooks/useCustomMove.ts";
 
 const makeDiv = (title: string, value: string | number )=>
   <div className={"flex justify-center"}>
@@ -12,6 +13,7 @@ const makeDiv = (title: string, value: string | number )=>
 function ReadComponent({tno}: {tno: number}) {
 
   const [todo, setTodo] = useState<Todo | undefined>();
+  const {moveToList, moveToModify} = useCustomMove()
 
   useEffect(()=>{
     getOne(tno).then(data => {
@@ -29,6 +31,10 @@ function ReadComponent({tno}: {tno: number}) {
           {makeDiv("Writer", todo.writer)}
           {makeDiv("Title", todo.title)}
           {makeDiv("Complete", todo.complete ? 'Completed' : 'Not Yet')}
+          <div className={"flex justify-end p-4"}>
+              <button type={"button"} className={"rounded p-4 m-2 text-xl w-32 text-white bg-blue-500"} onClick={()=> moveToList()}>List</button>
+              <button type={"button"} className={"rounded p-4 m-2 text-xl w-32 text-white bg-red-500"} onClick={()=> moveToModify(tno)}>Modify</button>
+          </div>
         </div>
       }
     </>
